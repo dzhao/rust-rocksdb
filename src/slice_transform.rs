@@ -66,6 +66,11 @@ impl SliceTransform {
         }
     }
 
+    pub fn create_capped_prefix(len: size_t) -> SliceTransform {
+        SliceTransform {
+            inner: unsafe { ffi::rocksdb_slicetransform_create_capped_prefix(len) },
+        }
+    }
     pub fn create_noop() -> SliceTransform {
         SliceTransform {
             inner: unsafe { ffi::rocksdb_slicetransform_create_noop() },
